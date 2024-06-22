@@ -1,3 +1,7 @@
+from database
+
+import re 
+
 banco_dados_paciente = []
 
 def verificar_existência(bd, telefone): 
@@ -8,20 +12,20 @@ def verificar_existência(bd, telefone):
         else:
             return False 
 
+def cadastrar(): 
 
-def cadastrar(nome, telefone): 
+    nome = input("Digite o nome do paciente: ")
+    telefone = input("Digite o telefone do paciente no formato 9xxxxxxxx: ") 
 
-    if verificar_existência(banco_dados_paciente, telefone):
-        return "Paciente já cadastrado!"
-    else: 
+    padrao = r'^9\d{8}$'
 
-        paciente = {
-        "nome": nome, 
-        "telefone": telefone
-        }
-
-        banco_dados_paciente.append(paciente)
-        return "Paciente cadastrado com sucesso"
+    if nome == "": 
+        return "Por gentileza, digite o seu nome!"
+    elif telefone == "": 
+        return "Por gentileza, digite o seu número de telefone! "
+    elif not re.match(padrao, telefone):
+        return "Por gentileza, digite o seu número de telefone no formato correto!"
+    elif not 
 
 def show_menu():
     while True:
@@ -34,12 +38,11 @@ def show_menu():
         choice = input('Digite o número da opção desejada: ')
 
         if choice == '1':
-            nome = input("Digite o nome do paciente: ")
-            telefone = input("Digite o telefone do paciente: ")
-            mensagem = cadastrar(nome, telefone)
-            print(mensagem)
+            retorno = cadastrar()
+            print(retorno)
         elif choice == '2':
-            print('Você escolheu a Opção 2')
+            # print('Você escolheu a Opção 2')
+            print(banco_dados_paciente)
         elif choice == '3':
             print('Você escolheu a Opção 3')
         elif choice == '4':
