@@ -17,8 +17,7 @@ def show_menu():
         choice = input('Digite o número da opção desejada: ')
 
         if choice == '1':
-            retorno = cadastrarPaciente()
-            print(retorno)
+            cadastrarPaciente()
         elif choice == '2':
             cadastrarConsulta()
         elif choice == '3':
