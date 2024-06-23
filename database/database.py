@@ -1,7 +1,8 @@
 import csv
+from datetime import datetime
+
 
 #CRUD paciente 
-
 def create_paciente(paciente, filename='database/pacientes.csv'):
     with open(filename, mode='a', newline='', encoding='utf-8') as file:
         file.seek(0, 2)  # Move o cursor para o final do arquivo
