@@ -23,7 +23,7 @@ def selecao_pacientes(pacientesCadastrados):
         for i, paciente in enumerate(pacientesCadastrados, start=1):
             print(f"{i} - {paciente['nome']}")
 
-        numPacienteEscolhido = int(input("Escolha um número correspondente a um paciente: "))
+        numPacienteEscolhido = int(input("Por favor, scolha um número correspondente a um paciente: "))
     
         if numPacienteEscolhido > len(pacientesCadastrados) or numPacienteEscolhido <= 0:
             print("O número digitado não está relacionado a nenhum paciente.")
@@ -34,16 +34,16 @@ def selecao_pacientes(pacientesCadastrados):
         return pacienteEscolhido
 
 def selecao_data(): 
-    data = input("Digite a data da consulta no formato dd/mm/yy: ")
+    data = input("Por favor, digite a data da consulta no formato dd/mm/yy: ")
 
     data_valida = validar_data(data)
     if not validar_data(data):
-        print("Por gentileza, digite a data no formato dd/mm/yy.")
+        print("Por favor, digite a data no formato dd/mm/yy.")
         return None 
 
     # Verifica se a data do agendamento não é anterior ao dia atual
     if data_valida.date() < datetime.now().date():
-        print("Erro: A data do agendamento não pode ser anterior ao dia atual.")
+        print("A data do agendamento não pode ser anterior ao dia atual.")
         return None 
     
     return data 
@@ -58,10 +58,10 @@ def selecao_horario(data):
     for i, j in enumerate(horarios_disponíveis):
         print(f"{i + 1} - {j}")
 
-    hora = int(input("Digite o número relacionado a um horário para a consulta: "))
+    hora = int(input("Por favor, digite o número relacionado a um horário para a consulta: "))
 
     if not validar_horario(hora + 7):
-        print("Por gentileza, digite um horário válido.")
+        print("Por favor, digite um horário válido.")
         return 
     
     return hora 
@@ -78,7 +78,7 @@ def selecao_especialidade():
     for i, especialidade in enumerate(especialidades, start=1):
         print(f"{i} - {especialidade}")
 
-    escolhaEspecialidade = int(input("Digite o número relacionado a uma de nossas especialidades: "))
+    escolhaEspecialidade = int(input("Por favor, digite o número relacionado a uma de nossas especialidades: "))
 
     if escolhaEspecialidade < 1 or escolhaEspecialidade > len(especialidades):
         print("Escolha inválida.")

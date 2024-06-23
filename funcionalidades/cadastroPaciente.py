@@ -2,29 +2,30 @@ from database.database import create_paciente, get_paciente_by_telefone
 import re
 
 def cadastrarPaciente(): 
-    nome = input("Digite o nome do paciente: ")
-    telefone = input("Digite o telefone do paciente no formato 9xxxxxxxx: ") 
+    nome = input("Por favor, digite o seu nome: ")
 
     padrao = r'^9\d{8}$'
 
-    if nome == "": 
+    if nome.strip() == "": 
         print("Por gentileza, digite o seu nome!")
         return
-    elif telefone == "": 
-        print("Por gentileza, digite o seu número de telefone!")
+    
+    telefone = input("Por favor, digite o seu telefone (formato 9xxxx-xxxx): ") 
+
+    if telefone.strip() == "": 
+        print("Você não digitou o seu telefone!")
         return
     elif not re.match(padrao, telefone):
-        print("Por gentileza, digite o seu número de telefone no formato correto!")
+        print("O número de telefone precisa estar no formato 9xxxx-xxxx.")
         return
-    elif get_paciente_by_telefone(telefone) is None: 
+    
+    if get_paciente_by_telefone(telefone) is None: 
         paciente = {
             'nome': nome, 
             'telefone': telefone
         }
 
         create_paciente(paciente)
-        print("Paciente cadastrado com sucesso")
-        return
+        print("Paciente cadastrado com sucesso!")
     else: 
         print("Paciente já cadastrado!")
-        return
