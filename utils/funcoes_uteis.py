@@ -27,7 +27,7 @@ def validar_horario(horario):
     
 def selecao_pacientes(pacientesCadastrados):
         for i, paciente in enumerate(pacientesCadastrados):
-            print(f"{BLUE}{i} - {paciente['nome']}{RESET}")
+            print(f"{BLUE}{i + 1} - {paciente['nome']}{RESET}")
         print(f"{BLUE}{len(pacientesCadastrados) + 1} - Voltar para o menu principal{RESET}")
 
         numPacienteEscolhido = int(input(f"{YELLOW}Por favor, escolha um número correspondente a um paciente:{RESET}"))
