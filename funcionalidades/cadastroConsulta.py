@@ -1,5 +1,6 @@
 from database.database import read_pacientes, create_consulta
-from utils.funcoes_uteis import selecao_especialidade,selecao_data, selecao_horario, selecao_pacientes
+from utils.funcoes_uteis import selecao_especialidade,selecao_data, selecao_horario, selecao_pacientes, RED, GREEN, YELLOW, BLUE, RESET
+
 
 def cadastrarConsulta():
 
@@ -46,5 +47,5 @@ def cadastrarConsulta():
     }
 
     create_consulta(consulta)
-    print("Consulta agendada com sucesso!")
-    input("Pressione Enter para continuar...")
+    print(f"{GREEN}Consulta agendada com sucesso!{RESET}")
+    input(f"{YELLOW}Pressione Enter para continuar...{RESET}")

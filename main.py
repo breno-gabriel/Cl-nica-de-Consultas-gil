@@ -1,6 +1,7 @@
 from funcionalidades.cadastroPaciente import cadastrarPaciente
 from funcionalidades.cadastroConsulta import cadastrarConsulta
 from funcionalidades.cancelar_remarcar_consulta import cancelar_consulta
+from utils.funcoes_uteis import RED, GREEN, YELLOW, BLUE, RESET
 import os
 
 def clear_screen():
@@ -37,7 +38,8 @@ def show_menu():
         print("4. Sair")
         print("="*50)
         
-        choice = input('Digite o número da opção desejada: ')
+        choice = input(f"{YELLOW}Digite o número da opção desejada:{RESET} ")
+        print()
 
         if choice == '1':
             cadastrarPaciente()
@@ -46,10 +48,10 @@ def show_menu():
         elif choice == '3':
             cancelar_consulta()
         elif choice == '4':
-            print('Agradecemos a preferência! Volte sempre!!')
+            print(f"{YELLOW}Agradecemos a preferência! Volte sempre!!{RESET}")
             break
         else:
-            print('Opção inválida. Tente novamente.')
-            input("Pressione Enter para continuar...")
+            print(f"{RED}Opção inválida. Tente novamente.{RESET}")
+            input(f"{YELLOW}Pressione Enter para continuar...{RESET}")
 
 show_menu()

@@ -1,25 +1,26 @@
 from database.database import create_paciente, get_paciente_by_telefone
+from utils.funcoes_uteis import RED, GREEN, YELLOW, BLUE, RESET
 import re
 
 def cadastrarPaciente(): 
-    nome = input("Por favor, digite o seu nome: ")
+    nome = input(f"{YELLOW}Por favor, digite o seu nome:{RESET} ")
 
     padrao = r'^9\d{8}$'
 
     if nome.strip() == "": 
-        print("Por favor, digite o seu nome!")
-        input("Pressione Enter para continuar...")
+        print(f"{YELLOW}Por favor, digite o seu nome!{RESET}")
+        input(f"{YELLOW}Pressione Enter para continuar...{RESET}")
         return
     
-    telefone = input("Por favor, digite o seu telefone (formato 9xxxx-xxxx): ") 
+    telefone = input(f"{YELLOW}Por favor, digite o seu telefone (formato 9xxxx-xxxx):{RESET} ") 
 
     if telefone.strip() == "": 
-        print("Você não digitou o seu telefone!")
-        input("Pressione Enter para continuar...")
+        print(f"{RED}Você não digitou o seu telefone!{RESET}")
+        input(f"{YELLOW}Pressione Enter para continuar...{RESET}")
         return
     elif not re.match(padrao, telefone):
-        print("O número de telefone precisa estar no formato 9xxxx-xxxx.")
-        input("Pressione Enter para continuar...")
+        print(f"{RED}O número de telefone precisa estar no formato 9xxxx-xxxx.{RESET}")
+        input(f"{YELLOW}Pressione Enter para continuar...{RESET}")
         return
     
     if get_paciente_by_telefone(telefone) is None: 
@@ -30,9 +31,9 @@ def cadastrarPaciente():
 
         create_paciente(paciente)
         print()
-        print("Paciente cadastrado com sucesso!")
-        input("Pressione Enter para continuar...")
+        print(f"{GREEN}Paciente cadastrado com sucesso!{RESET}")
+        input(f"{YELLOW}Pressione Enter para continuar...{RESET}")
     else: 
         print()
-        print("Paciente já cadastrado!")
-        input("Pressione Enter para continuar...")
+        print(f"{RED}Paciente já cadastrado!{RESET}")
+        input(f"{GREEN}Pressione Enter para continuar...{RESET}")
