@@ -1,18 +1,6 @@
 from database.database import read_pacientes, create_consulta
 from utils.funcoes_uteis import selecao_especialidade,selecao_data, selecao_horario, selecao_pacientes
 
-# def validar_horario(horario): 
-
-#         try:
-#             hora_int = int(horario + 7)
-#             if 1 <= hora_int <= 13:
-#                 return True
-#             else:
-#                 return False 
-#         except ValueError:
-#                 return False 
-
-
 def cadastrarConsulta():
 
     #Recebendo o paciente escolhido.
@@ -20,14 +8,34 @@ def cadastrarConsulta():
     
     pacienteEscolhido = selecao_pacientes(pacientesCadastrados)
 
+    if pacienteEscolhido is None: 
+        return None 
+
+    print()
+
     #Recebendo e validando a data da consulta.
     data = selecao_data()
+
+    if data is None:
+        return 
+
+    print()
 
     #Recebendo e e validando o horário da consulta.
     hora = selecao_horario(data)
 
+    if hora is None: 
+        return 
+
+    print()
+
     # Recebendo e validando escolha da especialidade.
     especilidade_escolhida = selecao_especialidade()
+
+    if especilidade_escolhida is None: 
+        return 
+
+    print()
 
     #Armazenando no banco de dados. 
     consulta = {
@@ -39,3 +47,4 @@ def cadastrarConsulta():
 
     create_consulta(consulta)
     print("Consulta agendada com sucesso!")
+    input("Pressione Enter para continuar...")

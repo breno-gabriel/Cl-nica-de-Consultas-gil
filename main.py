@@ -3,11 +3,12 @@ from funcionalidades.cadastroConsulta import cadastrarConsulta
 from funcionalidades.cancelar_remarcar_consulta import cancelar_consulta
 import os
 
-# def clear_screen():
-#     os.system('cls' if os.name == 'nt' else 'clear')
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def show_menu():
     while True:
+        clear_screen()
         
         print("="*50)
         print("CLÍNICA ÁGIL".center(50))
