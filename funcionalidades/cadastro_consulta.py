@@ -2,7 +2,7 @@ from database.database import read_pacientes, create_consulta
 from utils.funcoes_uteis import selecao_especialidade,selecao_data, selecao_horario, selecao_pacientes, RED, GREEN, YELLOW, BLUE, RESET
 
 
-def cadastrarConsulta():
+def cadastrar_consulta():
 
     #Recebendo o paciente escolhido.
     pacientesCadastrados = read_pacientes()

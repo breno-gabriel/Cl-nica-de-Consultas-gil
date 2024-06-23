@@ -2,7 +2,7 @@ from database.database import create_paciente, get_paciente_by_telefone
 from utils.funcoes_uteis import RED, GREEN, YELLOW, BLUE, RESET
 import re
 
-def cadastrarPaciente(): 
+def cadastrar_paciente(): 
     nome = input(f"{YELLOW}Por favor, digite o seu nome:{RESET} ")
 
     padrao = r'^9\d{8}$'

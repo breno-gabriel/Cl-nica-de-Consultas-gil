@@ -1,5 +1,5 @@
-from funcionalidades.cadastroPaciente import cadastrarPaciente
-from funcionalidades.cadastroConsulta import cadastrarConsulta
+from funcionalidades.cadastro_paciente import cadastrar_paciente
+from funcionalidades.cadastro_consulta import cadastrar_consulta
 from funcionalidades.cancelar_remarcar_consulta import cancelar_consulta
 from utils.funcoes_uteis import RED, GREEN, YELLOW, BLUE, RESET
 import os
@@ -42,9 +42,9 @@ def show_menu():
         print()
 
         if choice == '1':
-            cadastrarPaciente()
+            cadastrar_paciente()
         elif choice == '2':
-            cadastrarConsulta()
+            cadastrar_consulta()
         elif choice == '3':
             cancelar_consulta()
         elif choice == '4':

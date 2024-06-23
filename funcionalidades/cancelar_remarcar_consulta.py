@@ -1,5 +1,5 @@
 from database.database import read_consultas, delete_consulta, update_consulta
-from funcionalidades.cadastroPaciente import cadastrarPaciente, get_paciente_by_telefone
+from funcionalidades.cadastro_paciente import cadastrar_paciente, get_paciente_by_telefone
 from utils.funcoes_uteis import selecao_especialidade,selecao_data, selecao_horario, RED, GREEN, YELLOW, BLUE, RESET
 
 def cancelar_consulta():
