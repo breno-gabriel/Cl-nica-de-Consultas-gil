@@ -104,16 +104,24 @@ def read_consultas(filename='database/consultas.csv'):
     
 def update_consulta(target_telefone, target_data, target_hora, new_data, filename='database/consultas.csv'):
     updated = False
-    rows = read_consultas(filename)
+    fieldnames = ['data', 'hora', 'especialidade', 'telefone', 'nome']
+    
+    with open(filename, mode='r', newline='', encoding='utf-8') as file:
+        rows = list(csv.DictReader(file))
+
     with open(filename, mode='w', newline='', encoding='utf-8') as file:
-        writer = csv.DictWriter(file, fieldnames=new_data.keys())
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
+        
         for row in rows:
             if row['telefone'] == target_telefone and row['data'] == target_data and row['hora'] == target_hora:
-                writer.writerow(new_data)
+                # Atualiza apenas os campos necessários, mantendo o nome do paciente
+                for key in new_data:
+                    if key != 'nome':
+                        row[key] = new_data[key]
                 updated = True
-            else:
-                writer.writerow(row)
+            writer.writerow(row)
+    
     return updated
 
 def delete_consulta(target_telefone, target_data, target_hora, filename='database/consultas.csv'):

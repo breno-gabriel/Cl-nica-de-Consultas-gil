@@ -66,7 +66,14 @@ def selecao_horario(data):
     
     return hora 
 
-def selecao_especialidade(especialidades): 
+def selecao_especialidade(): 
+
+    especialidades = [
+        "Cardiologia", "Dermatologia", "Endocrinologia", "Gastroenterologia",
+        "Geriatria", "Ginecologia", "Hematologia", "Infectologia",
+        "Nefrologia", "Neurologia", "Oftalmologia", "Ortopedia",
+        "Otorrinolaringologia", "Pediatria", "Psiquiatria", "Reumatologia", "Urologia"
+    ]
 
     for i, especialidade in enumerate(especialidades, start=1):
         print(f"{i} - {especialidade}")

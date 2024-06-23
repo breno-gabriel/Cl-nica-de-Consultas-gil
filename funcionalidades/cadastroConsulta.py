@@ -14,12 +14,6 @@ from utils.funcoes_uteis import selecao_especialidade,selecao_data, selecao_hora
 
 
 def cadastrarConsulta():
-    especialidades = [
-        "Cardiologia", "Dermatologia", "Endocrinologia", "Gastroenterologia",
-        "Geriatria", "Ginecologia", "Hematologia", "Infectologia",
-        "Nefrologia", "Neurologia", "Oftalmologia", "Ortopedia",
-        "Otorrinolaringologia", "Pediatria", "Psiquiatria", "Reumatologia", "Urologia"
-    ]
 
     #Recebendo o paciente escolhido.
     pacientesCadastrados = read_pacientes()
@@ -33,7 +27,7 @@ def cadastrarConsulta():
     hora = selecao_horario(data)
 
     # Recebendo e validando escolha da especialidade.
-    especilidade_escolhida = selecao_especialidade(especialidades)
+    especilidade_escolhida = selecao_especialidade()
 
     #Armazenando no banco de dados. 
     consulta = {
